@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        img {
+            width: 200px;
+        }
+
+        .fav {
+            background-color: cadetblue;
+        }
+    </style>
     <title>Vue JS</title>
 </head>
 
@@ -15,21 +24,32 @@
 
         <div v-if="isShow">
             <div v-for="book in books">
-                <p>{{book.title}}</p>
-                <p>Author - {{book.author}}</p>
-                <p>Age - {{book.age}}</p>
-                <button @click="book.age--">Decrease Age</button>
-                <button @click="book.age++">Increase Age</button>
-                <hr>
+                <section :class="{fav:book.isfav}" @click="book.isfav=!book.isfav">
+                    <img :src="book.img">
+                    <p>{{book.title}}</p>
+                    <p>Author - {{book.author}}</p>
+                    <p>Age - {{book.age}}</p>
+                    <button @click="book.age--">Decrease Age</button>
+                    <button @click="book.age++">Increase Age</button>
+                    <hr>
+                </section>
             </div>
+            <hr>
         </div>
         <button @click="isShow=!isShow">
             <span v-if="isShow">Hide</span>
             <span v-if="isShow==false">Show</span>
         </button><br>
 
-    </div>
-    <script src="index.js"></script>
+        <h3>Fav Books</h3>
+        <div v-for="book in chooseClick">
+            <img :src="book.img">
+            <p>{{book.title}}</p>
+            <p>Author - {{book.author}}</p>
+            <p>Age - {{book.age}}</p>
+            <hr>
+        </div>
+        <script src="index.js"></script>
 </body>
 
 </html>
