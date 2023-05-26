@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,23 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Vue JS</title>
 </head>
+
 <body>
     <h3>Vue JS</h3>
     <div id="app">
-        <p>{{title}}</p>
-        <p>Author - {{author}}</p>
-        <p>Age - {{age}}</p>
-        <button @click="age--">Decrease Age</button>
-        <button @click="age++">Increase Age</button>
+        <div v-if="isShow">
+            <p>{{title}}</p>
+            <p>Author - {{author}}</p>
+            <p>Age - {{age}}</p>
+            <button @click="age--">Decrease Age</button>
+            <button @click="age++">Increase Age</button>
+        </div>
+        <button @click="isShow=!isShow">
+            <span v-if="isShow">Hide</span>
+            <span v-if="isShow==false">Show</span>
+        </button>
     </div>
     <script src="index.js"></script>
 </body>
+
 </html>

@@ -4,7 +4,8 @@ const app = Vue.createApp({
             title : "Vue JS",
             author : "Evan You",
             age : 36,
+            isShow : true,
         }
-    }
+    },
 })
 app.mount("#app");
