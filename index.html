@@ -6,14 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <style>
-        .box{
-            background-color: aquamarine;
-            padding: 100px;
-            display: inline-block;
-            margin: 30px;
-        }
-    </style>
     <title>Vue JS</title>
 </head>
 
@@ -22,21 +14,19 @@
     <div id="app">
 
         <div v-if="isShow">
-            <p>{{title}}</p>
-            <p>Author - {{author}}</p>
-            <p>Age - {{age}}</p>
-            <button @click="age--">Decrease Age</button>
-            <button @click="age++">Increase Age</button>
+            <div v-for="book in books">
+                <p>{{book.title}}</p>
+                <p>Author - {{book.author}}</p>
+                <p>Age - {{book.age}}</p>
+                <button @click="book.age--">Decrease Age</button>
+                <button @click="book.age++">Increase Age</button>
+                <hr>
+            </div>
         </div>
         <button @click="isShow=!isShow">
             <span v-if="isShow">Hide</span>
             <span v-if="isShow==false">Show</span>
         </button><br>
-
-
-        <div class="box" @mouseover="mouseOverHandler($event, 'I am mouseover')">Mouse Over</div>
-        <div class="box" @mouseleave="mouseLeaveHandler($event, 'I am mouseleave')">Mouse Leave</div>
-        <div class="box" @dblclick="doubleClickHandler($event, 'I am doubleclick')">Double Click</div>
 
     </div>
     <script src="index.js"></script>

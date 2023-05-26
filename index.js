@@ -1,22 +1,26 @@
 const app = Vue.createApp({
-    data(){
-        return{
-            title : "Vue JS",
-            author : "Evan You",
-            age : 36,
-            isShow : true,
-        }
-    },
-    methods:{
-        mouseOverHandler(event, data){
-            console.log('Mouse Over is Working', event.type, data);
+  data() {
+    return {
+      books: [
+        {
+          title: "Book 1",
+          author: "Khunn Satt Ko Ko",
+          age: 21,
         },
-        mouseLeaveHandler(event, data){
-            console.log('Mouse Leave is Working', event.type, data);
+        {
+          title: "Book 2",
+          author: "Khunn Satt",
+          age: 22,
         },
-        doubleClickHandler(event, data){
-            console.log('Double Click is Working', event.type, data);
-        }
-    }
-})
+        {
+          title: "Book 3",
+          author: "Zoro",
+          age: 23,
+        },
+      ],
+      isShow: true,
+    };
+  },
+
+});
 app.mount("#app");
